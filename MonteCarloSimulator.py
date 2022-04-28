@@ -299,7 +299,7 @@ for section in config.sections():
     E = Er*(8.8541*pow(10,-12))    # Permittivity of the medium 
 
 
-    Capacitance = capacitance() #Caluculates the required Capacitance
+    Capacitance = capacitance() #Calculates the required Capacitance
 
     # Initializing the output log file
     logger = setup_logger(out_file, f"logs/{out_file}.log", logging.DEBUG)
