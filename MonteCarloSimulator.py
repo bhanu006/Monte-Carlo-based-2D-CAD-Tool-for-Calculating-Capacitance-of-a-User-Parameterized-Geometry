@@ -140,26 +140,33 @@ def FRW(point):
 
 # Function for calculating voltage at a given point
 def Final_voltage(point):
-    iters = 10                                    # Initializing number of iterations
+    iters = 10000                                    # Initializing number of iterations
     voltages = []
     for i in range(iters):
         voltages.append(FRW(point))               # Storing new voltage value after every iteration
     voltages_dict = dict(Counter(voltages))
     voltage_keys = list(voltages_dict.keys())
+    
+    try:
+        zero_count = voltages_dict[0]
+    except:
+        zero_count = 0
 
     try:
-        up_count = voltages_dict[voltage_up]
+        ones_count = voltages_dict[1]
     except:
-        up_count = 0
+        ones_count = 0
 
     try:
-        lp_count = voltages_dict[voltage_lp]
+        none_count = voltages_dict[None]
     except:
-        lp_count = 0
+        none_count = 0
+
+    zero_count = zero_count + none_count
         
-    voltages_dict = {voltage_up:up_count, voltage_lp:lp_count}
+    voltages_dict = {0:zero_count, 1:ones_count}
             
-    final_voltage = (lp_count*voltages_dict[voltage_lp] + up_count*voltages_dict[voltage_up])/ (up_count+lp_count) # Average Voltage of all iterations
+    final_voltage = voltages_dict[1]/(voltages_dict[0]+voltages_dict[1]) # Average Voltage of all iterations
     return final_voltage
 
 #Calculation of Electric Field around the upper rectangular plate
