@@ -262,7 +262,7 @@ def setup_logger(name, log_file, level=logging.DEBUG):
 
 config = configparser.ConfigParser()  #ConfigParser() is responsible for parsing a list of configuration files
 
-config.read('Configuration Files/config_angle.ini')  # Reads the specified Configuration file
+config.read('config_angle.ini')  # Reads the specified Configuration file
 
 # The for loop loads input data from each section of the Configuration file
 for section in config.sections():
@@ -302,7 +302,7 @@ for section in config.sections():
     Capacitance = capacitance() #Calculates the required Capacitance
 
     # Initializing the output log file
-    logger = setup_logger(out_file, f"logs/{out_file}.log", logging.DEBUG)
+    logger = setup_logger(out_file, f"{out_file}.log", logging.DEBUG)
     logger.info("Capacitance Value for {} in (aF/um): {}".format(section, round(Capacitance[0] * pow(10,12),2)))
   
 
