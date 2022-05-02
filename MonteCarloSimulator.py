@@ -276,13 +276,13 @@ for section in config.sections():
     length_up = float(config.get(section, "length_up"))        # Length of the upper plate in um
     thickness_up = float(config.get(section, "thickness_up"))  # Thickness of the upper plate in um
     angle_up = float(config.get(section, "angle_up"))          # Angle at which the upper plate is rotated in degrees
-    voltage_up = float(config.get(section, "voltage_up"))      # Voltage of the upper plate in Volts
     length_lp = float(config.get(section, "length_lp"))        # Length of the lower plate in um
-    thickness_lp = float(config.get(section, "thickness_lp"))  # Thickness of the lower plate in um
-    voltage_lp = float(config.get(section, "voltage_lp"))      # Voltage of the lower plate in Volts
+    thickness_lp = float(config.get(section, "thickness_lp"))  # Thickness of the lower plate in um    
     space = float(config.get(section, "space"))                # Distance between the plates in um
     Er = float(config.get(section, "Er"))                      # Dielectric Constant of the medium
     out_file = config.get(section, "SetNameOutput")            # Output file 
+    voltage_lp = 0                     # Voltage of the lower plate in Volts
+    voltage_up = 1                     # Voltage of the upper plate in Volts
     
     R1_VOLTAGE = voltage_lp             # Voltage of lower rectangular plate
     R2_VOLTAGE = voltage_up             # Voltage of upper rectangular plate
